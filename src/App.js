@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
+//import Student from './Student';
+import Display from "./Display";
+import AddProduct from "./AddProduct";
+import AddCustomer from "./AddCustomer";
+import ViewCustomer from "./ViewCustomer";
+import MakeBill from "./MakeBill";
 
 function App() {
-  return (
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter> 
+     <Routes>  
+     <Route path='/addproduct' element= {<AddProduct/>}/>  
+     <Route path='/viewproduct' element= {<Display/>}/> 
+     <Route path='/addcustomer' element= {<AddCustomer/>}/>
+     <Route path='/viewcustomer' element= {<ViewCustomer/>}/>  
+     <Route path='/makebill/:CID' element= {<MakeBill/>}/>  
+   
+      </Routes>  
+    </BrowserRouter> 
+    </div>   
   );
+  
 }
 
-export default App;
+export default App
